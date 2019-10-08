@@ -24,7 +24,7 @@ public class HcloudBanner implements Banner {
         appVersion = name + this.getVersionString(appVersion, true);
         String bootVersion = this.getBootVersion();
         bootVersion = this.getVersionString(bootVersion, true);
-        String info = String.format(":: By JsCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s", appVersion, bootVersion);
+        String info = String.format(":: By HCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s", appVersion, bootVersion);
         printStream.println();
         printStream.println(AnsiOutput.toString(new Object[]{AnsiColor.GREEN, " __    __    ______  __        ______    __    __   _______  \n|  |  |  |  /      ||  |      /  __  \\  |  |  |  | |       \\ \n|  |__|  | |  ,----'|  |     |  |  |  | |  |  |  | |  .--.  |\n|   __   | |  |     |  |     |  |  |  | |  |  |  | |  |  |  |\n|  |  |  | |  `----.|  `----.|  `--'  | |  `--'  | |  '--'  |\n|__|  |__|  \\______||_______| \\______/   \\______/  |_______/"}));
         printStream.println(AnsiOutput.toString(new Object[]{AnsiColor.GREEN, info}));
