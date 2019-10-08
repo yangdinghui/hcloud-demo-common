@@ -9,7 +9,7 @@ import org.springframework.core.env.Environment;
 import java.io.PrintStream;
 
 public class HcloudBanner implements Banner {
-    private static final String BANNER = "   ___  _____  _____  _      _____  _   _ ______\n  |_  |/  ___|/  __ \\| |    |  _  || | | ||  _  \\\n    | |\\ `--. | /  \\/| |    | | | || | | || | | |\n    | | `--. \\| |    | |    | | | || | | || | | |\n/\\__/ //\\__/ /| \\__/\\| |____\\ \\_/ /| |_| || |/ /\n\\____/ \\____/  \\____/\\_____/ \\___/  \\___/ |___/";
+    private static final String BANNER = " __    __    ______  __        ______    __    __   _______  \n|  |  |  |  /      ||  |      /  __  \\  |  |  |  | |       \\ \n|  |__|  | |  ,----'|  |     |  |  |  | |  |  |  | |  .--.  |\n|   __   | |  |     |  |     |  |  |  | |  |  |  | |  |  |  |\n|  |  |  | |  `----.|  `----.|  `--'  | |  `--'  | |  '--'  |\n|__|  |__|  \\______||_______| \\______/   \\______/  |_______/";
     private static final String APPLICATON_INFO = ":: By JsCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s";
 
     public HcloudBanner() {
@@ -26,7 +26,7 @@ public class HcloudBanner implements Banner {
         bootVersion = this.getVersionString(bootVersion, true);
         String info = String.format(":: By JsCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s", appVersion, bootVersion);
         printStream.println();
-        printStream.println(AnsiOutput.toString(new Object[]{AnsiColor.GREEN, "   ___  _____  _____  _      _____  _   _ ______\n  |_  |/  ___|/  __ \\| |    |  _  || | | ||  _  \\\n    | |\\ `--. | /  \\/| |    | | | || | | || | | |\n    | | `--. \\| |    | |    | | | || | | || | | |\n/\\__/ //\\__/ /| \\__/\\| |____\\ \\_/ /| |_| || |/ /\n\\____/ \\____/  \\____/\\_____/ \\___/  \\___/ |___/"}));
+        printStream.println(AnsiOutput.toString(new Object[]{AnsiColor.GREEN, " __    __    ______  __        ______    __    __   _______  \n|  |  |  |  /      ||  |      /  __  \\  |  |  |  | |       \\ \n|  |__|  | |  ,----'|  |     |  |  |  | |  |  |  | |  .--.  |\n|   __   | |  |     |  |     |  |  |  | |  |  |  | |  |  |  |\n|  |  |  | |  `----.|  `----.|  `--'  | |  `--'  | |  '--'  |\n|__|  |__|  \\______||_______| \\______/   \\______/  |_______/"}));
         printStream.println(AnsiOutput.toString(new Object[]{AnsiColor.GREEN, info}));
         printStream.println();
     }

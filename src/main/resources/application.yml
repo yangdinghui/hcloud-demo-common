@@ -1,7 +1,2 @@
 server:
   port: 8860
-  servlet:
-    context-path: /demo
-spring:
-  profiles:
-    active: dev
