@@ -1,5 +1,7 @@
 package hcloud.demo.test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -83,22 +85,42 @@ public class Test {
 
 //        return personOpt.orElseGet(()->new Person("tom","Li","24"));
 
-        return personOpt.map(p1->p1.getLastName())
-                        .map(name->name.toUpperCase())
-                        .orElse(null);
+        return personOpt.map(p1 -> p1.getLastName())
+                .map(name -> name.toUpperCase())
+                .orElse(null);
     }
 
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+    public static void demo10() {
+
+        for (int i = 0; i < 30; i++) {
+            int li = i+1;
+            new Thread(() -> {
+                Date date = null;
+                try {
+                    String curr = "2019-10-" + li;
+                    synchronized (Test.class) {
+                        date = format.parse(curr);
+                    }
+                    System.out.println(li + ":" + date.getTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+    }
 
     public static void main(String[] args) {
-        Test.demo4(s -> System.out.println(s.isEmpty()), "ABCDEFG");
-
-        List<Person> personList = Arrays.asList(
-                new Person("XiaoMing", "Li", "20"),
-                new Person("Min", "Zhao", "20"),
-                new Person("XiaoMing", "Yang", "20"));
-
-        Test.demo8(personList);
-
+//        Test.demo4(s -> System.out.println(s.isEmpty()), "ABCDEFG");
+//
+//        List<Person> personList = Arrays.asList(
+//                new Person("XiaoMing", "Li", "20"),
+//                new Person("Min", "Zhao", "20"),
+//                new Person("XiaoMing", "Yang", "20"));
+//
+//        Test.demo8(personList);
+        Test.demo10();
     }
 
 }
