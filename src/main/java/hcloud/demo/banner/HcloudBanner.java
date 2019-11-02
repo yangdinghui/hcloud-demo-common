@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 public class HcloudBanner implements Banner {
     private static final String BANNER = " __    __    ______  __        ______    __    __   _______  \n|  |  |  |  /      ||  |      /  __  \\  |  |  |  | |       \\ \n|  |__|  | |  ,----'|  |     |  |  |  | |  |  |  | |  .--.  |\n|   __   | |  |     |  |     |  |  |  | |  |  |  | |  |  |  |\n|  |  |  | |  `----.|  `----.|  `--'  | |  `--'  | |  '--'  |\n|__|  |__|  \\______||_______| \\______/   \\______/  |_______/";
-    private static final String APPLICATON_INFO = ":: By JsCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s";
+    private static final String APPLICATON_INFO = ":: By HCloud(Shanghai) ::  %s\n:: Spring Boot ::           %s";
 
     public HcloudBanner() {
     }
