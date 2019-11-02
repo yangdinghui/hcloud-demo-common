@@ -19,6 +19,7 @@
         <fastjson.version>1.2.47</fastjson.version>
         <swagger2.version>2.9.2</swagger2.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
+        <swagger.bootstrap.version>1.9.4</swagger.bootstrap.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,14 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger2.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>${swagger.bootstrap.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
