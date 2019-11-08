@@ -42,15 +42,24 @@ public class Swagger2 {
     }
 
     @Bean
-    @ConditionalOnMissingBean(
-            name = {"docketInstance"}
-    )
+    @ConditionalOnMissingBean(name = {"docketInstance"})
     public Docket docketInstance() {
-        return (new Docket(DocumentationType.SWAGGER_2)).apiInfo(this.apiInfo()).enable(this.enable).select().apis(RequestHandlerSelectors.basePackage(this.basePackage)).paths(PathSelectors.any()).build();
+        return (new Docket(DocumentationType.SWAGGER_2))
+                .apiInfo(this.apiInfo())
+                .enable(this.enable)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(this.basePackage))
+                .paths(PathSelectors.any())
+                .build();
     }
 
     public ApiInfo apiInfo() {
-        return (new ApiInfoBuilder()).title(this.title).description(this.desc).termsOfServiceUrl(this.termsOfServiceUrl).version(this.version).build();
+        return (new ApiInfoBuilder())
+                .title(this.title)
+                .description(this.desc)
+                .termsOfServiceUrl(this.termsOfServiceUrl)
+                .version(this.version)
+                .build();
     }
 
     public String getBasePackage() {
