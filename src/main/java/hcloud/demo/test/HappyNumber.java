@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * description 功能描述
+ * description 找出快乐数
  *
  * @author 杨丁辉
  * @date 2019-11-08
