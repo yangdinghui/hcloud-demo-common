@@ -705,33 +705,31 @@ public final class DateUtil {
         }
     }
 
-//    public static String secToTime(int time) {
-//        String timeStr = null;
-//        int hour = false;
-//        int minute = false;
-//        int second = false;
-//        if (time <= 0) {
-//            return " 0 秒";
-//        } else {
-//            int minute = time / 60;
-//            int second;
-//            if (minute < 60) {
-//                second = time % 60;
-//                timeStr = unitFormat(minute) + " 分钟 " + unitFormat(second) + " 秒";
-//            } else {
-//                int hour = minute / 60;
-//                if (hour > 99) {
-//                    return "99 小时以上 ";
-//                }
-//
-//                minute %= 60;
-//                second = time - hour * 3600 - minute * 60;
-//                timeStr = unitFormat(hour) + " 小时 " + unitFormat(minute) + " 分钟 " + unitFormat(second) + " 秒";
-//            }
-//
-//            return timeStr;
-//        }
-//    }
+    public static String secToTime(int time) {
+        String timeStr = null;
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        if (time <= 0) {
+            return " 0 秒";
+        } else {
+            minute = time / 60;
+            if (minute < 60) {
+                second = time % 60;
+                timeStr = unitFormat(minute) + " 分钟 " + unitFormat(second) + " 秒";
+            } else {
+                hour = minute / 60;
+                if (hour > 99) {
+                    return "99 小时以上 ";
+                }
+                minute %= 60;
+                second = time - hour * 3600 - minute * 60;
+                timeStr = unitFormat(hour) + " 小时 " + unitFormat(minute) + " 分钟 " + unitFormat(second) + " 秒";
+            }
+
+            return timeStr;
+        }
+    }
 
     private static String unitFormat(int i) {
         String retStr = null;
