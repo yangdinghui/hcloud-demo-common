@@ -743,4 +743,20 @@ public final class DateUtil {
 
         return retStr;
     }
+
+    /**
+     * 两个时间差转成时分格式;
+     *
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    public String getCountDown(String beginTime, String endTime) {
+        int Minute = subtractMinute(beginTime, endTime);
+        int hours = (int) Math.floor(Minute / 60);
+        int minute = Minute % 60;
+        String countDown = String.format("%02d", hours) + ":" + String.format("%02d", minute) + ":00";
+        return countDown;
+    }
+
 }
