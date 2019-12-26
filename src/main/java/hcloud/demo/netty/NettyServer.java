@@ -21,7 +21,6 @@ public class NettyServer {
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(mainGroup, subGroup)
-                        .channel((Class<? extends ServerChannel>) NioSocketChannel.class)
                         .childHandler(null);
     }
 }
