@@ -63,7 +63,7 @@ public class QrCodeBaseUtils {
         return resMatrix;
     }
 
-    /*
+    /**
      * 插入LOGO
      *
      * @param source 二维码图片
