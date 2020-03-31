@@ -1,4 +1,4 @@
-package hcloud.demo.netty.bio;
+package hcloud.demo.netty.nio.client;
 
 /**
  * description 描述这个类的主要功能、用途
@@ -6,5 +6,5 @@ package hcloud.demo.netty.bio;
  *
  * @author 杨丁辉
  */
-public class BioClient {
+public class NioClient {
 }
