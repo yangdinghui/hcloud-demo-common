@@ -33,6 +33,7 @@ public abstract class ChannelAdapter extends Thread {
         while (true) {
             try {
                 //Selects a set of keys whose corresponding channels are ready for I/O
+                //选择一组其对应通道已准备好的键 进行I/O
                 selector.select(1000);
                 Set<SelectionKey> selectedKeys = selector.selectedKeys();
                 Iterator<SelectionKey> it = selectedKeys.iterator();
