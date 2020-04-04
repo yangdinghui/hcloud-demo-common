@@ -21,32 +21,20 @@ public class NioServer {
     private void bind(int port) {
 
         try {
-            /**
-             * 1.创建Selector
-             */
+
+            //1.创建Selector
             selector = Selector.open();
-            /**
-             * 2.创建Channel
-             */
+            //2.创建Channel
             serverSocketChannel = ServerSocketChannel.open();
-            /**
-             * 3.Channel绑定端口
-             */
+            //3.Channel绑定端口
             serverSocketChannel.socket().bind(new InetSocketAddress(8000));
 //            serverSocketChannel.bind(new InetSocketAddress(8000));
-
-            /**
-             * 4.Channel设置为非阻塞模式
-             */
+            //4.Channel设置为非阻塞模式
             serverSocketChannel.configureBlocking(false);
-            /**
-             * 5.向Selector注册Channel
-             */
+            //5.向Selector注册Channel
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
             System.out.println("---------- 服务端已启动 ----------");
-            /**
-             * 6.循环等待新的连接
-             */
+            //6.循环等待新的连接
             for (; ; ) {
                 int select = selector.select();
                 if (select == 0) continue;
@@ -54,9 +42,7 @@ public class NioServer {
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
-                    /**
-                     * 7.根据就绪状态，调用对应方法处理业务逻辑
-                     */
+                    //7.根据就绪状态，调用对应方法处理业务逻辑
                     //如果是接入事件
                     if (key.isAcceptable()) {
                         acceptHandler(serverSocketChannel, selector);
@@ -160,6 +146,7 @@ public class NioServer {
     private void broadCast(Selector selector, SocketChannel sourceChannel, String msg) {
         //获取所有已接入的客户端channel
         Set<SelectionKey> selectionKeySet = selector.keys();
+        //循环向所有channel广播信息
         selectionKeySet.forEach(selectionKey -> {
             Channel targetChannel = selectionKey.channel();
             //剔除发消息的客户端
@@ -172,11 +159,7 @@ public class NioServer {
                     e.printStackTrace();
                 }
             }
-
         });
-        //循环向所有channel广播信息
-
-
     }
 
     public static void main(String[] args) {
