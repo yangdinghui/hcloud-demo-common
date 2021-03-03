@@ -41,7 +41,7 @@ public enum ResultStatus {
 
         for(int var3 = 0; var3 < var2; ++var3) {
             ResultStatus _enum = var1[var3];
-            if (_enum.getCode() == code || _enum.getCode().equals(code)) {
+            if (_enum.getCode().equals(code) || _enum.getCode().equals(code)) {
                 return _enum;
             }
         }
