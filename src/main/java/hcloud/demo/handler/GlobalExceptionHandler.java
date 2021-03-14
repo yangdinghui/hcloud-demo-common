@@ -15,13 +15,14 @@ import javax.validation.ConstraintViolationException;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @author Tomatoes
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
     public GlobalExceptionHandler() {
     }
-
     @ExceptionHandler({Exception.class})
     public ApiResponse<String> handlerException(Exception e) {
         if (e instanceof BusinessException) {
@@ -39,26 +40,23 @@ public class GlobalExceptionHandler {
                 String message = error.getDefaultMessage();
                 sb.append(message).append(";");
             }
-
             String message = sb.toString().substring(0, sb.toString().lastIndexOf(";"));
             log.error("参数校验错误：" + message);
             return ApiResponse.fail(202, message);
-        } else if (!(e instanceof ConstraintViolationException)) {
-            log.error("系统异常：", e);
-            return ApiResponse.fail(ResultStatus.SYSTEM_ERROR.getCode(), "系统后台数据处理异常");
-        } else {
+        } else if (e instanceof ConstraintViolationException) {
             ConstraintViolationException exception = (ConstraintViolationException) e;
             StringBuffer sb = new StringBuffer();
             Iterator var4 = exception.getConstraintViolations().iterator();
-
             while (var4.hasNext()) {
                 ConstraintViolation constraint = (ConstraintViolation) var4.next();
                 sb.append(constraint.getInvalidValue()).append("值不正确，").append(constraint.getMessage()).append(";");
             }
-
             String message = sb.toString().substring(0, sb.toString().lastIndexOf(";"));
             log.error("参数校验错误：" + message);
             return ApiResponse.fail(202, message);
+        } else {
+            log.error("系统异常：", e);
+            return ApiResponse.fail(ResultStatus.SYSTEM_ERROR.getCode(), "系统后台数据处理异常");
         }
     }
 }
