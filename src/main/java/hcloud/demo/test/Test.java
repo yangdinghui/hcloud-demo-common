@@ -1,5 +1,7 @@
 package hcloud.demo.test;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -110,6 +112,12 @@ public class Test {
             }).start();
         }
     }
+    public static void demo11(){
+        long a = 789;
+        BigDecimal bigDecimal = new BigDecimal(789);
+        System.out.println(new BigDecimal(new DecimalFormat("0.00").format(a)));
+        System.out.println(new BigDecimal(new DecimalFormat("0.00").format(bigDecimal)));
+    }
 
     public static void main(String[] args) {
 //        Test.demo4(s -> System.out.println(s.isEmpty()), "ABCDEFG");
@@ -120,7 +128,7 @@ public class Test {
 //                new Person("XiaoMing", "Yang", "20"));
 //
 //        Test.demo8(personList);
-        Test.demo10();
+        Test.demo11();
     }
 
 }

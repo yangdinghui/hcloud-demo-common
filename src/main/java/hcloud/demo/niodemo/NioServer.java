@@ -21,14 +21,13 @@ public class NioServer {
     private void bind(int port) {
 
         try {
-
             //1.创建Selector
             selector = Selector.open();
             //2.创建Channel
             serverSocketChannel = ServerSocketChannel.open();
             //3.Channel绑定端口
             serverSocketChannel.socket().bind(new InetSocketAddress(8000));
-//            serverSocketChannel.bind(new InetSocketAddress(8000));
+            //serverSocketChannel.bind(new InetSocketAddress(8000));
             //4.Channel设置为非阻塞模式
             serverSocketChannel.configureBlocking(false);
             //5.向Selector注册Channel
