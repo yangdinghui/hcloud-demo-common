@@ -118,6 +118,11 @@ public class Test {
         System.out.println(new BigDecimal(new DecimalFormat("0.00").format(a)));
         System.out.println(new BigDecimal(new DecimalFormat("0.00").format(bigDecimal)));
     }
+    public static void demo12(){
+
+
+        
+    }
 
     public static void main(String[] args) {
 //        Test.demo4(s -> System.out.println(s.isEmpty()), "ABCDEFG");
