@@ -19,7 +19,7 @@ public class QueueTest {
 //        ConcurrentLinkedQueue
 
         String a = "123";
-        String b = "123";
+        String b = new String("123");//"123";
 
         //true
         System.out.println(a == b);
