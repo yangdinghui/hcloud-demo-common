@@ -1,6 +1,11 @@
 package hcloud.demo.test.threadpool;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
@@ -43,7 +48,7 @@ public class ThreadDemo {
 
     public static void main(String[] args) {
         ThreadDemo threadDemo = new ThreadDemo();
-        threadDemo.t3();
+        threadDemo.t4();
     }
 
     public void t1() {
@@ -131,5 +136,18 @@ public class ThreadDemo {
         } finally {
             threadPoolExecutor.shutdown();
         }
+    }
+
+    public  void t4(){
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        List<String> list2 = new ArrayList<>();
+        list2.add("4");
+        list2.add("5");
+        list = list.stream().filter(e -> list2.contains(e)).collect(Collectors.toList());
+        System.out.println(list.size());
     }
 }

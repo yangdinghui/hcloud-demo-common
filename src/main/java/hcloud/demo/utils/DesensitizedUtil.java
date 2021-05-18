@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 添加脱敏工具类DesensitizedUtil
+ * @author tomato
  */
 public class DesensitizedUtil {
 
@@ -16,7 +17,6 @@ public class DesensitizedUtil {
         } else {
             str = "";
         }
-
         return str;
     }
 
@@ -26,7 +26,6 @@ public class DesensitizedUtil {
         } else {
             str = "";
         }
-
         return str;
     }
 
@@ -36,7 +35,6 @@ public class DesensitizedUtil {
         } else {
             str = "";
         }
-
         return str;
     }
 }
